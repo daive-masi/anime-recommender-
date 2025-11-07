@@ -1,0 +1,9 @@
+setup.py
+anime_recommender.egg-info/PKG-INFO
+anime_recommender.egg-info/SOURCES.txt
+anime_recommender.egg-info/dependency_links.txt
+anime_recommender.egg-info/top_level.txt
+src/__init__.py
+src/config.py
+src/preprocessing.py
+src/utils.py
