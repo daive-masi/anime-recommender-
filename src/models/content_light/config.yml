@@ -1,0 +1,45 @@
+# =====================================================
+# CONFIG — Content Light Model
+# =====================================================
+
+dataset: "../data/processed/anime_master_clean.csv"
+
+seed: 42
+
+# -------------------------
+# TF-IDF parameters
+# -------------------------
+tfidf:
+  max_features: 20000
+  min_df: 3
+  ngram_range: [1, 2]
+
+# -------------------------
+# Numeric features
+# -------------------------
+numeric_features:
+  - score
+  - members
+  - year
+  - popularity
+
+# -------------------------
+# Dimensionality reduction
+# (disabled for light version)
+# -------------------------
+svd:
+  enabled: false
+  n_components: 300
+
+umap:
+  enabled: false
+  n_neighbors: 30
+  min_dist: 0.1
+  n_components: 64
+
+# -------------------------
+# KNN model
+# -------------------------
+knn:
+  n_neighbors: 25
+  metric: "cosine"

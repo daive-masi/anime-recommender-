@@ -1,0 +1,31 @@
+# ==========================================
+# CONFIG CONTENT LIGHT
+# ==========================================
+
+data:
+  dataset_path: "./data/processed/anime_master_clean.csv"
+
+model:
+  use_umap: false
+
+  tfidf:
+    max_features: 20000
+    ngram_range: [1, 2]
+    min_df: 2
+
+  umap:
+    n_components: 50
+    n_neighbors: 15      # 👈 AJOUT OBLIGATOIRE
+    metric: "cosine"
+    random_state: 42
+
+  knn:
+    n_neighbors: 30
+    metric: "cosine"
+
+output:
+  artifacts_dir: "./runs/content_light"
+  vectorizer_path: "tfidf_vectorizer.pkl"
+  umap_path: "umap_model.pkl"
+  knn_path: "knn_model.pkl"
+  embeddings_path: "embeddings.npy"

@@ -1,0 +1,46 @@
+# =====================================================
+# CONFIG — Content Premium Model
+# =====================================================
+
+dataset: "../data/processed/anime_master_clean.csv"
+
+seed: 42
+
+# -------------------------
+# TF-IDF parameters
+# -------------------------
+tfidf:
+  max_features: 60000
+  min_df: 3
+  ngram_range: [1, 2]
+
+# -------------------------
+# Numeric features
+# -------------------------
+numeric_features:
+  - score
+  - members
+  - year
+  - popularity
+
+# -------------------------
+# Dimensionality Reduction
+# -------------------------
+
+svd:
+  enabled: true
+  n_components: 500
+
+umap:
+  enabled: true
+  n_neighbors: 25
+  min_dist: 0.1
+  n_components: 128
+
+# -------------------------
+# ANN (FAISS or sklearn)
+# -------------------------
+
+ann:
+  use_faiss: true
+  n_neighbors: 50
