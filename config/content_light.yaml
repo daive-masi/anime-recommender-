@@ -3,7 +3,7 @@
 # ==========================================
 
 data:
-  dataset_path: "./data/processed/anime_master_clean.csv"
+  dataset_path: "data/processed/anime_master_clean.csv"
 
 model:
   use_umap: false

@@ -12,6 +12,11 @@ models/
 # Large artifacts (optional)
 artifacts/
 checkpoints/
+# Model runs
+runs/
+*.joblib
+*.pkl
+*.npz
 
 # ============================================
 #   PYTHON
