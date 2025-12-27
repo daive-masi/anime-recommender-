@@ -7,3 +7,10 @@ src/__init__.py
 src/config.py
 src/preprocessing.py
 src/utils.py
+src/utils/__init__.py
+src/utils/config_loader.py
+src/utils/feature_scaling.py
+src/utils/genre_processing.py
+src/utils/logger.py
+src/utils/run_manager.py
+src/utils/text_cleaning.py

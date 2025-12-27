@@ -1,0 +1,28 @@
+# ==========================================
+# CONFIG CONTENT PREMIUM (SBERT)
+# ==========================================
+
+data:
+  dataset_path: "data/processed/anime_master_clean.csv"
+
+model:
+  # C'est le moteur Deep Learning
+  # "all-MiniLM-L6-v2" est rapide et très performant pour l'anglais/japonais traduit
+  transformer_name: "all-MiniLM-L6-v2"
+
+  # Importance relative des features (Tuning)
+  # Cela permet d'ajuster l'influence de chaque partie sans changer le code
+  weights:
+    genres: 0.6      # Réduit l'impact des genres (pour laisser le texte briller)
+    numerical: 0.2   # Réduit l'impact des stats (score, membres)
+
+  knn:
+    n_neighbors: 50  # On stocke plus de voisins car la recherche sémantique est plus riche
+    metric: "cosine"
+
+output:
+  artifacts_dir: "./runs/content_premium"
+  knn_path: "knn_model_premium.joblib"
+  features_path: "features_premium.npz"
+  scaler_path: "numerical_scaler.joblib"
+  binarizer_path: "genre_binarizer.joblib"
