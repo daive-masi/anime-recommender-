@@ -1,0 +1,23 @@
+# ==========================================
+# CONFIG HYBRID RECOMMENDER (FUSION)
+# ==========================================
+
+data:
+  dataset_path: "../data/processed/anime_master_clean.csv"
+  svd_matrix_path: "../data/processed/svd_similarity_matrix.pkl"
+
+features:
+  # Paramètres pour la matrice ADN (Content)
+  tfidf_max_features: 500
+  dna_stats_cols: ['score', 'members', 'year', 'completion_rate', 'drop_rate', 'fav_count']
+
+model:
+  # Alpha : Importance du contenu vs social
+  # 0.8 signifie 80% Contenu (ADN) et 20% Social (SVD)
+  hybrid_alpha: 0.8 
+
+recommender:
+  n_recs: 10
+
+output:
+  artifacts_dir: "./runs/hybrid"

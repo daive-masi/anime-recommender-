@@ -1,0 +1,21 @@
+# ==========================================
+# CONFIG SVD (COLLABORATIVE FILTERING)
+# ==========================================
+
+data:
+  interactions_path: "../data/raw/favs.csv"
+
+preprocessing:
+  # Filtrage de la matrice pour la densité (sparsity)
+  min_user_favorites: 5
+  min_anime_favorites: 150
+
+model:
+  type: "TruncatedSVD"
+  params:
+    n_components: 1000 # Nombre de facteurs latents
+    random_state: 42
+
+output:
+  artifacts_dir: "./runs/svd_collaborative"
+  similarity_matrix_path: "svd_similarity_matrix.pkl"

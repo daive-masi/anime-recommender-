@@ -1,0 +1,36 @@
+# ==========================================
+# CONFIG RANDOM FOREST (SUPERVISED LEARNING)
+# ==========================================
+
+data:
+  dataset_path: "data/processed/anime_master_clean.csv"
+
+features:
+  tfidf_max_features: 2000
+  numerical_cols: ['members', 'popularity', 'year']
+
+model:
+  type: "RandomForestRegressor"
+  params:
+    n_estimators: 150
+    max_depth: 15
+    n_jobs: -1
+    random_state: 42
+    verbose: 1
+  train_test_split:
+    test_size: 0.2
+    random_state: 42
+
+recommender:
+  # Pondération finale du score de recommandation
+  weights:
+    metadata_match: 0.5   # Score basé sur les genres/types
+    text_similarity: 0.3  # Similarité cosinus du synopsis
+    rf_score: 0.2         # Prédiction de la note par la RF
+  n_recs: 10
+
+output:
+  artifacts_dir: "./runs/random_forest"
+  model_path: "rf_model.joblib"
+  scaler_path: "rf_scaler.joblib"
+  tfidf_path: "rf_tfidf.joblib"
